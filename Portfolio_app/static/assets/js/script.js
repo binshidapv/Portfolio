@@ -56,17 +56,7 @@ $(document).ready(function () {
 
 });
 
-//document.addEventListener('visibilitychange',
-//    function () {
-//        if (document.visibilityState === "visible") {
-//            document.title = "Portfolio | Binshida";
-//            $("#favicon").attr("href", "{% static 'assets/images/favicon.png' %}");
-//        }
-//        else {
-//            document.title = "Come Back To Portfolio";
-//            $("#favicon").attr("href", "{% static 'assets/images/favhand.png' %}");
-////        }
-//    });
+//
 document.addEventListener('visibilitychange',
     function () {
         console.log('visibility state changed');
@@ -94,32 +84,6 @@ var typed = new Typed(".typing-text", {
     backSpeed: 25,
     backDelay: 500,
 });
-// <!-- typed js effect ends -->
-
-//async function fetchData(type = "skills") {
-//    let response
-//    type === "skills" ?
-//        response = await fetch("skills.json")
-//        :
-//        response = await fetch("./projects/projects.json")
-//    const data = await response.json();
-//    return data;
-//}
-//
-//function showSkills(skills) {
-//    let skillsContainer = document.getElementById("skillsContainer");
-//    let skillHTML = "";
-//    skills.forEach(skill => {
-//        skillHTML += `
-//        <div class="bar">
-//              <div class="info">
-//                <img src=${skill.icon} alt="skill" />
-//                <span>${skill.name}</span>
-//              </div>
-//            </div>`
-//    });
-//    skillsContainer.innerHTML = skillHTML;
-//}
 
 function showProjects(projects) {
     let projectsContainer = document.querySelector("#work .box-container");
