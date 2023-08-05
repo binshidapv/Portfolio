@@ -12,15 +12,14 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 
 import os
 from pathlib import Path
+from decouple import config
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-import dj_database_url
+
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-import environ
-env=environ.Env()
-environ.Env.read_env()
+
 
 
 # Quick-start development settings - unsuitable for production
@@ -30,8 +29,8 @@ environ.Env.read_env()
 SECRET_KEY = 'django-insecure-1r51rxg)ikgzuhobb^sm)m@*u%d#f*uq@4aujbl!4+k^$h+kwl'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
-ALLOWED_HOSTS = ['https://my-portfolio-q09o.onrender.com']
+DEBUG = True
+ALLOWED_HOSTS = ['*']
 
 # Application definition
 INSTALLED_APPS = [
@@ -79,23 +78,24 @@ WSGI_APPLICATION = 'portfolio.wsgi.application'
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql',
-#
-#     }
-# }
-# ...
-
-
-#render Postgresql live
-
-
-
 
 DATABASES = {
-    'default' : dj_database_url.parse(env('DATABASE_URL'))
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': config('DB_NAME'),
+        'USER': config('DB_USER'),
+        'PASSWORD': config('DB_PASSWORD'),
+        'HOST': config('DB_HOST', default='localhost'),
+        'PORT': config('DB_PORT', default='5432'),
+    }
 }
+
+
+
+
+
+
+
 
 
 # Password validation
