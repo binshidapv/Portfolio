@@ -531,26 +531,33 @@ gap : 0;
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
   position: relative;
   overflow: hidden;
-  height: 35rem;
+  height: auto;
   transform-style: preserve-3d;
+  display: flex; /* Add this to make inner elements flex */
+  flex-direction: column; /* Stack inner elements vertically */
+}
 }
 
 .work .box-container .box img {
   height: 100%;
-  width: 100%;
-  object-fit: container;
+  max-width: 100%;
+  object-fit: contain;
 }
 
 .work .box-container .box .content {
   height: 100%;
   width: 100%;
   position: absolute;
-  top: 85%;
+  bottom: 0; /* Position content at the bottom */
   left: 0;
   background: rgba(255, 255, 255, 0.9);
   display: flex;
   flex-direction: column;
+  justify-content: flex-end; /* Align content at the bottom */
+  padding: 10px;
+  box-sizing: border-box; /* Include padding in width/height */
 }
+
 
 .work .box-container .box .content .tag {
   display: flex;
